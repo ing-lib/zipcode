@@ -1,0 +1,19 @@
+{
+  "name": "ing-lib/zipcode",
+  "description": "Japan Zipcode for Ing API.",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Le Van Ha",
+      "email": "levanha@in-g.jp",
+      "role": "Developer",
+      "homepage": "http://in-g.jp"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "IngZipcode\\": "src/"
+    }
+  }
+}
