@@ -1,1 +1,1 @@
-1_zipcode
+Japan Zipcode using for Ing API
