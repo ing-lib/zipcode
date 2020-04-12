@@ -31,7 +31,7 @@ class Zipcode
   public function getData()
   {
       $zip_code = $this->zipcode;
-      if ($zip_code == null || empty($zip_code) || count($zip_code) < 7) {
+      if ($zip_code == null || empty($zip_code) || strlen($zip_code) < 7) {
         return false;
       }
       $zip = mb_substr($zip_code, 0, 3);
@@ -41,7 +41,7 @@ class Zipcode
         return false;
       }
       $content = file_get_contents($url, true);
-      if (count($content) <= 0) {
+      if (strlen($content) <= 0) {
         return false;
       }
       return $content;
