@@ -31,15 +31,14 @@ class Zipcode
   public function getData()
   {
       $zip = mb_substr($this->zipcode, 0, 3);
-      $url = "./data/".$zip."/".$this->zipcode.".json";
+      $separator = DIRECTORY_SEPARATOR;
+      $url = "data".$separator.$zip.$separator.$this->zipcode.".json";
+      if (!file_exists(__DIR__.$separator.$url)) {
+        return false;
+      }
       $content = file_get_contents($url, true);
-      if ($content = null || $content = "") {
-        $err = array(
-          "result" => false,
-          "code" => 404,
-          "message" => "Zipcode Not found"
-        );
-        return json_encode($err);
+      if (count($content) <= 0) {
+        return false;
       }
       return $content;
   }
