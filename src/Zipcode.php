@@ -30,9 +30,13 @@ class Zipcode
 
   public function getData()
   {
-      $zip = mb_substr($this->zipcode, 0, 3);
+      $zip_code = $this->zipcode;
+      if ($zip_code == null || empty($zip_code) || count($zip_code) < 7) {
+        return false;
+      }
+      $zip = mb_substr($zip_code, 0, 3);
       $separator = DIRECTORY_SEPARATOR;
-      $url = "data".$separator.$zip.$separator.$this->zipcode.".json";
+      $url = "data".$separator.$zip.$separator.$zip_code.".json";
       if (!file_exists(__DIR__.$separator.$url)) {
         return false;
       }
